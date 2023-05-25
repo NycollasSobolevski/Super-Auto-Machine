@@ -1,0 +1,25 @@
+- Singleton (LUTA)
+- Decorator (Comidinha)
+
+
+Fase de Compras (Moedas = 10, corações = 5, trofeus = 0)    (Singleton) 
+    Equipe (max 5,) LIST
+    Mercado(3 peças[personagens] -= 3 moedas)
+    Sistema de compra ()
+    Refresh (-= 1 moeda)
+
+peça: (Decorator / Builder) (Composite)
+    Tier
+    Nivel
+    Experiência
+    Ataque
+    Vida
+
+Batalha: (Singleton) 
+    Queue (Personagens)
+
+
+
+
+ADD's:
+    Bridge
