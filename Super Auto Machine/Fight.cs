@@ -34,16 +34,29 @@ public class Fight
     }
 
 
-    public void FightTurn(){
-        while(MyMachines != null || EnemieMachines != null){
+    public int FightTurn(){
+        while(true){
             VerifyMachine(MyMachines[0],EnemieMachines[0]);
+
+
+            if(MyMachines.Count() == 0 && EnemieMachines.Count() == 0){
+                return 0;
+            }
+            else if(EnemieMachines.Count() == 0){
+                return 1;
+            }
+            else if(MyMachines.Count() == 0){
+                return 2;
+            }
+
+
             MyMachines[0].Atacked(EnemieMachines[0]);
             EnemieMachines[0].Atacked(MyMachines[0]);
             Thread.Sleep(3000);
         }
     }
 
-    public static void New() => crr = new Fight();
+
     public static void New(List<Machine> mymachines, List<Machine> enemiemachines) => crr = new Fight(mymachines,enemiemachines);
 
 }
