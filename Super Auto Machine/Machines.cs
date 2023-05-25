@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,44 +9,30 @@ namespace Super_Auto_Machine;
 public class Machine
 {
     public virtual int Life { get; set; }
-    public int Level { get; set; }
-    public int Exp { get; set; }
+    public virtual int Level { get; set; }
+    public virtual int Exp { get; set; }
     public virtual int Tier { get; set; }
-    public int Power { get; set; }
-    public void Atack() { }
+    public virtual int Power { get; set; }
 
-    public class MachineBuilder
-    {
-        private Machine machine = new Machine();
-        public Machine Build()
-        {
-            
-            return null;
-        }
-    }
+    public virtual void UP(Machine machine) { }
+    public virtual void Atacked(Machine machine) { }
+
 }
-
-public class Composite : Machine
-{
-    
-}
-
-public interface IBuilder
-{
-    
-}
-
 
 public class Hammer : Machine
 {
-    this.Life = 3;
+    public override int Life { get; set; } = 3;
     public override int Power { get; set; } = 2;
     public override int Level { get; set ; }
-    public override int Exp { get ; set; }
-    public override int Tier { get; set; } = 2;
+    public override int Exp { get; set; } = 0;
+    public override int Tier { get; set; }
 
-    public override void Atack()
+    public override void UP(Machine hammer) 
     {
-        throw new NotImplementedException();
+        this.Life = (Math.Max(this.Life, hammer.Life)) + 1;
+        this.Power = (Math.Max(this.Power, hammer.Power)) + 1;
+        this.Exp += hammer.Exp;
     }
+    public override void Atacked(Machine machine)
+        => this.Life -= machine.Power
 }
