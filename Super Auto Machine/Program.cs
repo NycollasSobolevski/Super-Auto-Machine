@@ -1,6 +1,6 @@
 using Super_Auto_Machine;
 
-Player player = new Player (5, 10, 0);
+Player player = new(5, 10, 0);
 
 
 Store.New();

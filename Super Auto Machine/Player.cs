@@ -12,8 +12,9 @@ public class Player
     public int Trophies {get;set;}
     public int Levels {get;set;}
 
-    public Player(int Hearts, int Trophies){
+    public Player(int Hearts, int Trophies, int levels){
         this.Hearts = Hearts;
         this.Trophies = Trophies;
+        this.Levels = levels;
     }
 }
