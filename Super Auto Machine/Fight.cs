@@ -38,7 +38,6 @@ public class Fight
         while(true){
             VerifyMachine(MyMachines[0],EnemieMachines[0]);
 
-
             if(MyMachines.Count() == 0 && EnemieMachines.Count() == 0){
                 return 0;
             }
