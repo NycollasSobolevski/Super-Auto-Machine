@@ -5,14 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Super_Auto_Machine;
-public abstract class Machines
+public class Machine
 {
-    public abstract int Life { get; set; }
-    public abstract int Level { get; set; }
-    public abstract int Exp { get; set; }
-    public abstract int Tier { get; set; }
-    public abstract int Power { get; set; }
-    public abstract void Atack();
+    public virtual int Life { get; set; }
+    public int Level { get; set; }
+    public int Exp { get; set; }
+    public virtual int Tier { get; set; }
+    public int Power { get; set; }
+    public void Atack() { }
+
+    public class MachineBuilder
+    {
+        private Machine machine = new Machine();
+        public Machine Build()
+        {
+            
+            return null;
+        }
+    }
+}
+
+public class Composite : Machine
+{
+    
 }
 
 public interface IBuilder
@@ -21,13 +36,13 @@ public interface IBuilder
 }
 
 
-public class Hammer : Machines
+public class Hammer : Machine
 {
-    public override int Life { get; set; } = 3;
+    this.Life = 3;
     public override int Power { get; set; } = 2;
     public override int Level { get; set ; }
     public override int Exp { get ; set; }
-    public override int Tier { get; set ; }
+    public override int Tier { get; set; } = 2;
 
     public override void Atack()
     {
