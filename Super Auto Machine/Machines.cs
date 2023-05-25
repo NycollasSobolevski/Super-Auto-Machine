@@ -34,5 +34,5 @@ public class Hammer : Machine
         this.Exp += hammer.Exp;
     }
     public override void Atacked(Machine machine)
-        => this.Life -= machine.Power
+        => this.Life -= machine.Power;
 }
