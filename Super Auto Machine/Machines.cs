@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Super_Auto_Machine;
-public abstract class Machines
+public abstract class Machine
 {
     public abstract int Life { get; set; }
     public abstract int Level { get; set; }
@@ -21,7 +21,7 @@ public interface IBuilder
 }
 
 
-public class Hammer : Machines
+public class Hammer : Machine
 {
     public override int Life { get; set; } = 3;
     public override int Power { get; set; } = 2;
