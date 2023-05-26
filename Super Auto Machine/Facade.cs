@@ -7,17 +7,17 @@ public class Facade
 
     public void Game(Player player)
     {
-        while (player.Hearts > 0 || player.Trophies < 10)
+        while (Player.Hearts > 0 || Player.Trophies < 10)
         {
             if (FightGame.FightTurn() == 1)
             {
-                player.Trophies += 1;
-                player.Levels += 1;
+                Player.Trophies += 1;
+                Player.Round += 1;
             }
             else if (FightGame.FightTurn() == 2)
             {
-                player.Hearts -= 1;
-                player.Levels += 1;
+                Player.Hearts -= 1;
+                Player.Round += 1;
             }
             Store.New();
         }

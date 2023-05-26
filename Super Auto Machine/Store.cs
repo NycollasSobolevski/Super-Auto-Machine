@@ -29,18 +29,26 @@ public class Store
     {
         Sales.Clear();
         var rand = new Random();
+        var filteredList = Machine.Machines
+                                  .ToList()
+                                  .FindAll(x => x.Tier == Player.Round)
+                                  .ToList();
+
         for (int i = 0; i < 5; i++)
         {
-            Sales[i] = Machine.Machines[rand.Next(Machine.Machines.Count)];
+            Sales[i] = filteredList[rand.Next(filteredList.Count)];
         }
     }
     public void OpenStore()
     {
         Shuffle();
         foreach(Machine m in Player.Team)
-        {
             m.StoreHability(Current);
-        }
+    }
+    public void CloseStore()
+    {
+        foreach(Machine m in Player.Team)
+            m.EndStoreHability(Current, Player.Team);
     }
     public void UpgradeMachine(Machine selected, Machine selected2)
     {
