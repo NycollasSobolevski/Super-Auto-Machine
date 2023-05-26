@@ -28,6 +28,7 @@ public abstract class Machine
         this.Exp += machine.Exp;
         this.Level = this.Exp / 3;
     }
+    public virtual bool IsAlive() => this.Life > 0;
     public virtual void SaleHability(Store store) { }
     public virtual void StoreHability(Store store) { }
     public virtual void DamageHability(List<Machine> machines = null) { }

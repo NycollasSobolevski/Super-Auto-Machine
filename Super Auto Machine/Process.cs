@@ -13,7 +13,7 @@ public abstract class Process
 
 public abstract class BattleProcess : Process 
 {
-    public abstract void Apply(StoreArgs args);
+    public abstract void Apply(BattleArgs args);
 }
 
 public abstract class PlayerProcess : Process
@@ -41,8 +41,8 @@ public abstract class OnHurt : BattleProcess
     public override void Apply(BattleArgs args)
     {
         Random rand= new();
-        rand.Next(args.Enemies.Count);
+        int index = rand.Next(args.Enemies.Count);
 
-        //AQUI
+        args.Enemies[index].Atacked(args.Machine);
     }
 }
