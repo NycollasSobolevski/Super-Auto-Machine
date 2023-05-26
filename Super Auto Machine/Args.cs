@@ -28,5 +28,6 @@ public class PlayerArgs : ProcessArgs
 public class BattleArgs : ProcessArgs
 {
     public Machine Machine { get; set; }
+    public List<Machine> Allies { get; set; }
     public List<Machine> Enemies { get; set; }
 }

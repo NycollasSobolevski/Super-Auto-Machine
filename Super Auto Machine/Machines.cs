@@ -32,6 +32,7 @@ public abstract class Machine
     }
     public virtual bool IsAlive() => this.Life > 0;
     public virtual void SaleHability(Store store) { }
+    public virtual void SaleHability(List<Machine> machines) { }
     public virtual void StoreHability(Store store) { }
     public virtual void EndStoreHability(Store store, List<Machine> Team = null) { }
     public virtual void DamageHability(List<Machine> machines = null) { }
@@ -54,7 +55,13 @@ public class Hammer : Machine
             Machines.Add(new Hammer());
         }
     }
-
+    private AddLifeInStoreProcess saleProcess = null;
+    public override void SaleHability(Store store)
+    {
+        StoreArgs args = new ();
+        args.Store = store;
+        saleProcess.Apply(args);
+    }
 }
 public class Screwdriver : Machine
 {
@@ -68,6 +75,13 @@ public class Screwdriver : Machine
         {
             Machines.Add(new Screwdriver());
         }
+    }
+    private AddLifeRandTeamProcess addLifeProcess = null;
+    public override void SaleHability(List<Machine> machines)
+    {
+        StoreArgs args = new();
+        args.Machines = machines;
+        addLifeProcess.Apply(args);
     }
 }
 public class Belt : Machine
@@ -89,6 +103,29 @@ public class Belt : Machine
         args.Machine = this;
         args.Store = store;
         process.Apply(args, 1);
+    }
+}
+public class Drill : Machine
+{
+    public override int Life { get; protected set; } = 1;
+    public override int Power { get; protected set; } = 2;
+    public override int Tier { get; protected set; } = 1;
+    public Drill()
+    {
+        if (!Machines.Any(x => x.GetType() == typeof(Drill)))
+        {
+            Machines.Add(new Drill());
+        }
+    }
+    private OnDied onDiedProcess = null;
+    public override void DamageHability(List<Machine> aliies)
+    {
+        if (this.IsAlive())
+            return;
+        BattleArgs args = new BattleArgs();
+        args.Machine = this;
+        args.Allies = aliies;
+        onDiedProcess.Apply(args);
     }
 }
 public class ColumnDrill : Machine
