@@ -14,6 +14,7 @@ public class ProcessArgs
 
 public class StoreArgs : ProcessArgs
 {
+    public List<Machine> Machines{ get; set; }
     public Store Store { get; set; }
     public Machine Machine { get; set; }
 }

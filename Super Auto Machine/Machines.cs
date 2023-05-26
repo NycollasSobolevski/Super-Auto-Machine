@@ -17,6 +17,8 @@ public abstract class Machine
     public int Exp { get; protected set; } = 1;
     public abstract int Tier { get; protected set; }
     public abstract int Power { get; protected set; }
+    public virtual void UpPower(int power) => this.Power += power;
+    public virtual void UpLife(int life) => this.Life += life;
 
     public virtual void UP(Machine machine)
     {
@@ -31,6 +33,7 @@ public abstract class Machine
     public virtual bool IsAlive() => this.Life > 0;
     public virtual void SaleHability(Store store) { }
     public virtual void StoreHability(Store store) { }
+    public virtual void EndStoreHability(Store store, List<Machine> Team = null) { }
     public virtual void DamageHability(List<Machine> machines = null) { }
     public virtual void Atacked(Machine machine) => this.Life -= machine.Power;
 
@@ -166,6 +169,8 @@ public class CooredenateDrill : Machine
     private OnHurt onHurtProcess = null;
     public override void DamageHability(List<Machine> enemies)
     {
+        if (!this.IsAlive())
+            return;
         BattleArgs args = new();
         args.Machine = this;
         args.Enemies = enemies;
@@ -234,6 +239,15 @@ public class Lathe : Machine
         {
             Machines.Add(new Lathe());
         }
+    }
+    private UpLifeAtackProcess process = null;
+    public override void EndStoreHability(Store store, List<Machine> Team)
+    {
+        StoreArgs args = new();
+        args.Machine = this;
+        args.Store = store;
+        args.Machines = Team;
+        process.Apply(args);
     }
 }
 public class CNCLathe : Machine

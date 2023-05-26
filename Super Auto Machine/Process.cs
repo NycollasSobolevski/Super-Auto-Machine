@@ -24,6 +24,10 @@ public abstract class StoreProcess : Process
 {
     public abstract void Apply(StoreArgs args, int gold = 0);
 }
+public abstract class EndStoreProcess : Process
+{
+    public abstract void Apply(StoreArgs args);
+}
 
 public abstract class GoldOnSaleProcess : StoreProcess
 {
@@ -44,5 +48,18 @@ public abstract class OnHurt : BattleProcess
         int index = rand.Next(args.Enemies.Count);
 
         args.Enemies[index].Atacked(args.Machine);
+    }
+}
+public abstract class UpLifeAtackProcess : EndStoreProcess
+{
+    public override void Apply(StoreArgs args)
+    {
+        bool IsLevel3 = false;
+        foreach (var machine in args.Machines)
+            if (machine.Level == 3)
+                IsLevel3 = true;
+
+        args.Machine.UpLife(2);
+        args.Machine.UpPower(2);
     }
 }
