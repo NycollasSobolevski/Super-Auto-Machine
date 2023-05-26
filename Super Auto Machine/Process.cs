@@ -36,7 +36,13 @@ public abstract class AddGoldProcess : StoreProcess
         => args.Store.Money += gold;
 }
 
-public abstract class OnHurt : 
+public abstract class OnHurt : BattleProcess
 {
-    
+    public override void Apply(BattleArgs args)
+    {
+        Random rand= new();
+        rand.Next(args.Enemies.Count);
+
+        //AQUI
+    }
 }

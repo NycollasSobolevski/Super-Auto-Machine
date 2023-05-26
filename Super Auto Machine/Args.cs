@@ -23,3 +23,9 @@ public class PlayerArgs : ProcessArgs
     public Player Player { get; set; }
     public Machine Machine { get; set; }
 }
+
+public class BattleArgs : ProcessArgs
+{
+    public Machine Machine { get; set; }
+    public List<Machine> Enemies { get; set; }
+}

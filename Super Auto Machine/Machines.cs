@@ -30,7 +30,7 @@ public abstract class Machine
     }
     public virtual void SaleHability(Store store) { }
     public virtual void StoreHability(Store store) { }
-    public virtual void BattleHability() { }
+    public virtual void DamageHability(List<Machine> machines = null) { }
     public virtual void Atacked(Machine machine) => this.Life -= machine.Power;
 
     public virtual int getValue() => this.Tier;
@@ -161,6 +161,14 @@ public class CooredenateDrill : Machine
         {
             Machines.Add(new CooredenateDrill());
         }
+    }
+    private OnHurt onHurtProcess = null;
+    public override void DamageHability(List<Machine> enemies)
+    {
+        BattleArgs args = new();
+        args.Machine = this;
+        args.Enemies = enemies;
+        onHurtProcess.Apply(args);
     }
 }
 
