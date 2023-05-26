@@ -34,6 +34,14 @@ public class Store
             Sales[i] = Machine.Machines[rand.Next(Machine.Machines.Count)];
         }
     }
+    public void OpenStore()
+    {
+        Shuffle();
+        foreach(Machine m in Player.Team)
+        {
+            m.StoreHability(Current);
+        }
+    }
     public void UpgradeMachine(Machine selected, Machine selected2)
     {
         if (selected.GetType() == selected2.GetType())
@@ -45,6 +53,7 @@ public class Store
     {
         Player.Team.Remove(selected);
         Money-= selected.Level;
+        selected.SaleHability(Current);
     }
     public static void New()
         => crr = new Store();
