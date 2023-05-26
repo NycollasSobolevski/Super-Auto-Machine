@@ -35,3 +35,8 @@ public abstract class AddGoldProcess : StoreProcess
     public override void Apply(StoreArgs args, int gold = 0)
         => args.Store.Money += gold;
 }
+
+public abstract class OnHurt : 
+{
+    
+}

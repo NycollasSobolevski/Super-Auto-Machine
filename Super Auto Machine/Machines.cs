@@ -28,7 +28,7 @@ public abstract class Machine
         this.Exp += machine.Exp;
         this.Level = this.Exp / 3;
     }
-    public virtual void SaleHabilyty(Store store) { }
+    public virtual void SaleHability(Store store) { }
     public virtual void StoreHability(Store store) { }
     public virtual void BattleHability() { }
     public virtual void Atacked(Machine machine) => this.Life -= machine.Power;
@@ -81,7 +81,7 @@ public class Belt : Machine
         }
     }
     private GoldOnSaleProcess process = null;
-    public override void SaleHabilyty(Store store)
+    public override void SaleHability(Store store)
     {
         StoreArgs args = new();
         args.Machine = this;
