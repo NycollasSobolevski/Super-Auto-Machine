@@ -25,9 +25,12 @@ public abstract class Machine
 
         this.Life = (Math.Max(this.Life, machine.Life)) + 1;
         this.Power = (Math.Max(this.Power, machine.Power)) + 1;
-        this.Level = this.Exp / 3;
         this.Exp += machine.Exp;
+        this.Level = this.Exp / 3;
     }
+    public virtual void SaleHabilyty(Store store) { }
+    public virtual void StoreHability(Store store) { }
+    public virtual void BattleHability() { }
     public virtual void Atacked(Machine machine) => this.Life -= machine.Power;
 
     public virtual int getValue() => this.Tier;
@@ -77,6 +80,14 @@ public class Belt : Machine
             Machines.Add(new Belt());
         }
     }
+    private GoldOnSaleProcess process = null;
+    public override void SaleHabilyty(Store store)
+    {
+        StoreArgs args = new();
+        args.Machine = this;
+        args.Store = store;
+        process.Apply(args, 1);
+    }
 }
 
 
@@ -109,6 +120,14 @@ public class IndustrialGasOver : Machine
         {
             Machines.Add(new IndustrialGasOver());
         }
+    }
+    private AddGoldProcess process = null;
+    public override void StoreHability(Store store)
+    {
+        StoreArgs args = new();
+        args.Store = store;
+        args.Machine = this;
+        process.Apply(args);
     }
 }
 
