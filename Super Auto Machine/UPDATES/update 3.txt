@@ -1,0 +1,11 @@
+Atualização Secreta 3
+O jogo agora contará com 2 upgrades na sua loja que atualiza junto com os pets.
+Atualização nos upgrades:
+Óleo: 3 de ouro, +1/+1 a uma peça a escolha.
+Reciclgem: 1 de ouro, mata uma peça a sua escolha.
+Botão de segurança: 3 de ouro, uma peça a sua escolha ganha o seguinte efeito: Ao sofrer dano, recebe 2 de dano a menos, mas no mínimo 1.
+Sensores de segurança: 3 de ouro, uma peça a sua escolha ganha o seguinte efeito: O próximo dano sofrido é ignorado.
+Os upgrades que dão efeitos não podem ser combados e um substitui o outro.
+Atualização nas peças:
+ Forno Industrial Elétrico: No inicio da batalha causa 3 de dano ao inimigo com a menor vida.
+Fresa: Ao matar um inimigo ganha +3/+3.

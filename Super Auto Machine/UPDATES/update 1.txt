@@ -1,0 +1,10 @@
+Atualização Secreta 1
+Os inimigos aleatórios agora são uma simulação de um jogador real que recebe lojas aleatórias e tenta fazer peças de nível maior. Tentando ter um time de tamanho 3 no primeiro round e times de tamanho 5 a partir deste.
+
+Atualização nas peças:
+
+Materlo: Ao vender da mais um de vida para as peças da loja.
+
+Chave de Fenda: Ao vender da mais um de vida para uma peça aleatória do time.
+
+Furadeira: Tier 1, 2/1, ao morrer da +2/+1 para um aliado aleatório.

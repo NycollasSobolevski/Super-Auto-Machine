@@ -1,0 +1,7 @@
+A partir desta atualização, no inicio do jogo só são disponíveis peças do tier 1. Em todos os rounds impares (3, 5, 7, 9 e 11) será liberado um novo tier na loja. 
+No round 3, caso o jogador tenha perdido vida, ele recupera um único coração.
+Atualização nas peças:
+Furadeira de Coluna: Ao atacar causa 1 de dano ao aliado atrás dele.
+Retífica Cilindrica: Ao se machucar (e ficar vivo) da +1/+1 ao aliado atrás.
+Retífica Plana: Ao morrer concede +1/+1 a dois aliados atrás
+Jet-cutting: Tier 3, 6/3.
