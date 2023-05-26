@@ -56,7 +56,6 @@ public class Hammer : Machine
     }
 
 }
-
 public class Screwdriver : Machine
 {
     public override int Life { get; protected set; } = 3;
@@ -71,7 +70,6 @@ public class Screwdriver : Machine
         }
     }
 }
-
 public class Belt : Machine
 {
     public override int Life {  get; protected set; } 
@@ -93,8 +91,6 @@ public class Belt : Machine
         process.Apply(args, 1);
     }
 }
-
-
 public class ColumnDrill : Machine
 {
     public override int Life { get; protected set; } = 5;
@@ -110,7 +106,6 @@ public class ColumnDrill : Machine
     }
     public override int getValue() => this.Tier;
 }
-
 public class IndustrialGasOver : Machine
 {
     public override int Life { get; protected set; } = 3;
@@ -134,7 +129,6 @@ public class IndustrialGasOver : Machine
         process.Apply(args);
     }
 }
-
 public class FlatGrinder : Machine
 {
     public override int Life { get; protected set; } = 4;
@@ -150,8 +144,6 @@ public class FlatGrinder : Machine
         }
     }
 }
-
-
 public class CooredenateDrill : Machine
 {
     public override int Life { get; protected set; } = 3;
@@ -177,7 +169,6 @@ public class CooredenateDrill : Machine
         onHurtProcess.Apply(args);
     }
 }
-
 public class IndustrialEletricOver : Machine
 {
     public override int Life { get; protected set; } = 4;
@@ -193,7 +184,6 @@ public class IndustrialEletricOver : Machine
         }
     }
 }
-
 public class CylindricalGrinder : Machine
 {
     public override int Life { get; protected set; } = 2;
@@ -209,8 +199,6 @@ public class CylindricalGrinder : Machine
         }
     }
 }
-
-
 public class MillingCutter : Machine
 {
     public override int Life { get; protected set; } = 4;
