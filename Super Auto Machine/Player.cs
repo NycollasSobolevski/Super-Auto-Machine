@@ -15,4 +15,5 @@ public class Player
     public static int Round { get; set; } = 0;
     public static List<Machine> Team { get;set;} = new List<Machine>();
     public static List<Machine> Enemy { get; set; } = new List<Machine>();
+
 }
