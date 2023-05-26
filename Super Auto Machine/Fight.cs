@@ -42,6 +42,7 @@ public class Fight
                 return 2;
             }
 
+            DamageHability(Player.Enemy);
 
             MyMachines[0].Atacked(EnemieMachines[0]);
             EnemieMachines[0].Atacked(MyMachines[0]);
