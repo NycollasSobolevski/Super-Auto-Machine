@@ -4,7 +4,6 @@ public class Facade
 {
     public Store StoreGame {get;set;} = Store.Current;
     public Fight FightGame {get;set;} = Fight.Current;
-    public List<Machine> Enemy { get; set; }
 
     public void Game(Player player)
     {
@@ -20,7 +19,7 @@ public class Facade
                 player.Hearts -= 1;
                 player.Levels += 1;
             }
-            Store.New(Machine.Machines, Player.Team, Enemy);
+            Store.New();
         }
     }
 

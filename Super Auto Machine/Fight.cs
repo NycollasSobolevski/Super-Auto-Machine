@@ -20,32 +20,32 @@ public class Fight
     
 
     public void VerifyMachine(Machine mymachine, Machine enemiemachine){
-        if(enemiemachine.Life <= 0)
+        if(!enemiemachine.IsAlive())
             EnemieMachines.RemoveAt(0);
 
-        if(mymachine.Life <= 0)
+        if(!mymachine.IsAlive())
             MyMachines.RemoveAt(0);
     }
 
 
     public int FightTurn(){
         while(true){
-            VerifyMachine(MyMachines[0],EnemieMachines[0]);
-
-            if(MyMachines.Count() == 0 && EnemieMachines.Count() == 0){
+            if(MyMachines.Count == 0 && EnemieMachines.Count == 0){
                 return 0;
             }
-            else if(EnemieMachines.Count() == 0){
+            else if(EnemieMachines.Count == 0){
                 return 1;
             }
-            else if(MyMachines.Count() == 0){
+            else if(MyMachines.Count == 0){
                 return 2;
             }
 
-            DamageHability(Player.Enemy);
 
             MyMachines[0].Atacked(EnemieMachines[0]);
             EnemieMachines[0].Atacked(MyMachines[0]);
+            MyMachines[0].DamageHability(Player.Enemy);
+
+            VerifyMachine(MyMachines[0],EnemieMachines[0]);
             Thread.Sleep(3000);
         }
     }
