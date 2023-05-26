@@ -11,23 +11,14 @@ namespace Super_Auto_Machine;
 public class Store
 {
     private Store() { }
-    private Store(List<Machine> machines, List<Machine> team, List<Machine> enemy)
-    {
-        this.Machines = machines;
-        this.Team = team;
-        this.Enemy = enemy;
 
-    }
     private static Store crr = new();
     public static Store Current => crr;
-
-    public List<Machine> Machines { get; set; }
-    public List<Machine> Team { get; set; }
     public List<Machine> Sales { get; set; }
     public int Money { get; set; } = 10;
     public void Buy(Machine buy)
     {
-        if (Team.Count < 5 && Money>=3)
+        if (Player.Team.Count < 5 && Money>=3)
         {
             Player.Team.Add(buy);
             Sales.Remove(buy);
@@ -40,10 +31,10 @@ public class Store
         var rand = new Random();
         for (int i = 0; i < 5; i++)
         {
-            Sales[i] = Machines[rand.Next(Machines.Count)];
+            Sales[i] = Machine.Machines[rand.Next(Machine.Machines.Count)];
         }
     }
-    public static void UpgradeMachine(Machine selected, Machine selected2)
+    public void UpgradeMachine(Machine selected, Machine selected2)
     {
         if (selected.GetType() == selected2.GetType())
         {
@@ -53,7 +44,8 @@ public class Store
     public void Sell(Machine selected)
     {
         Player.Team.Remove(selected);
+        Money-= selected.Level;
     }
-    public static void New(List<Machine> machines, List<Machine> team, List<Machine> enemy)
-        => crr = new Store(machines, team, enemy);
+    public static void New()
+        => crr = new Store();
 }

@@ -11,26 +11,20 @@ namespace Super_Auto_Machine;
 public class Fight
 {
     private Fight() {}
-    private Fight(List<Machine> mymachines, List<Machine> enemiemachines)
-    {
-        this.MyMachines = mymachines; 
-        this.EnemieMachines = enemiemachines;
-    }
 
     private static Fight crr = new Fight();
     public static Fight Current => crr;
 
-    public List<Machine> MyMachines {get;set;}
-    public List<Machine> EnemieMachines {get;set;}
+    public List<Machine> MyMachines {get;set;} = Player.Team.ToList();
+    public List<Machine> EnemieMachines { get; set; } = Player.Enemy.ToList();
     
 
     public void VerifyMachine(Machine mymachine, Machine enemiemachine){
-        if(enemiemachine.Life <= 0){
+        if(enemiemachine.Life <= 0)
             EnemieMachines.RemoveAt(0);
-        }
-        else if(mymachine.Life <= 0){
+
+        if(mymachine.Life <= 0)
             MyMachines.RemoveAt(0);
-        }
     }
 
 
@@ -56,6 +50,7 @@ public class Fight
     }
 
 
-    public static void New(List<Machine> mymachines, List<Machine> enemiemachines) => crr = new Fight(mymachines,enemiemachines);
+    public static void New() 
+        => crr = new Fight();
 
 }
